@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>mobx | Hardy | 小方块</title>
+    <meta name="description" content="IT技术分享">
+    <link rel="icon" href="/node/icon.ico">
+    
+    <link rel="preload" href="/node/assets/css/0.styles.9f204413.css" as="style"><link rel="preload" href="/node/assets/js/app.2a6376c5.js" as="script"><link rel="preload" href="/node/assets/js/2.0cb281c6.js" as="script"><link rel="preload" href="/node/assets/js/16.1b732ecd.js" as="script"><link rel="prefetch" href="/node/assets/js/10.3814a49e.js"><link rel="prefetch" href="/node/assets/js/11.36e04101.js"><link rel="prefetch" href="/node/assets/js/12.6698ce06.js"><link rel="prefetch" href="/node/assets/js/13.e82381ab.js"><link rel="prefetch" href="/node/assets/js/14.8dfc5fc5.js"><link rel="prefetch" href="/node/assets/js/15.fb8f5af7.js"><link rel="prefetch" href="/node/assets/js/17.e650c4ab.js"><link rel="prefetch" href="/node/assets/js/18.69e536a7.js"><link rel="prefetch" href="/node/assets/js/19.896fdd23.js"><link rel="prefetch" href="/node/assets/js/3.d09c7b5d.js"><link rel="prefetch" href="/node/assets/js/4.22864e37.js"><link rel="prefetch" href="/node/assets/js/5.276d693a.js"><link rel="prefetch" href="/node/assets/js/6.4803aa42.js"><link rel="prefetch" href="/node/assets/js/7.a8c6acaf.js"><link rel="prefetch" href="/node/assets/js/8.2a6549f3.js"><link rel="prefetch" href="/node/assets/js/9.d6f4a666.js">
+    <link rel="stylesheet" href="/node/assets/css/0.styles.9f204413.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/node/" class="home-link router-link-active"><!----> <span class="site-name">Hardy | 小方块</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实验室" class="dropdown-title"><span class="title">实验室</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="javascript:;" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  实验1
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="javascript:;" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  实验2
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实验室" class="dropdown-title"><span class="title">实验室</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="javascript:;" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  实验1
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="javascript:;" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  实验2
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>前端</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>css</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>react</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/node/articals/web/react/mobx/mobx.html" class="active sidebar-link">mobx使用</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>工具箱</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>浏览器</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>后端</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>服务端</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>数据库</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>网络</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="mobx"><a href="#mobx" class="header-anchor">#</a> mobx</h3> <ul><li>mobx</li> <li>状态管理</li> <li>react</li></ul> <p>在react中有一个非常轻量的mobx状态管理工具</p> <h3 id="环境搭建（react中）"><a href="#环境搭建（react中）" class="header-anchor">#</a> 环境搭建（react中）</h3> <h4 id="安装mobx和连接器mobx-react"><a href="#安装mobx和连接器mobx-react" class="header-anchor">#</a> 安装mobx和连接器mobx-react</h4> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">yarn</span> <span class="token function">add</span> mobx mobx-react -S
+</code></pre></div><h4 id="安装两个babel插件支持装饰器"><a href="#安装两个babel插件支持装饰器" class="header-anchor">#</a> 安装两个Babel插件支持装饰器</h4> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">yarn</span> <span class="token function">add</span> @babel/plugin-proposal-decorators -D
+
+<span class="token function">yarn</span> <span class="token function">add</span> @babel/plugin-proposal-class-properties -D
+</code></pre></div><p>package.json中配置</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token string">&quot;babel&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+	<span class="token string">&quot;plugins&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">[</span><span class="token string">&quot;@babel/plugin-proposal-decorators&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">&quot;legacy&quot;</span><span class="token operator">:</span><span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+		<span class="token punctuation">[</span><span class="token string">&quot;@babel/plugin-proposal-class-properties&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">&quot;loose&quot;</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+	<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;presets&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;react-app&quot;</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><h4 id="eslint支持-package-json"><a href="#eslint支持-package-json" class="header-anchor">#</a> Eslint支持(package.json)</h4> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token string">&quot;eslintConfig&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token string">&quot;parserOptions&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+	  <span class="token string">&quot;ecmaFeatures&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+		  <span class="token string">&quot;legacyDecorators&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+	  <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token string">&quot;extends&quot;</span><span class="token operator">:</span> <span class="token string">&quot;react-app&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><h3 id="mobx主要api"><a href="#mobx主要api" class="header-anchor">#</a> mobx主要api</h3> <h4 id="observable"><a href="#observable" class="header-anchor">#</a> @observable</h4> <ul><li>概念: 创建一个被监听的对象, 没有@observable声明的视图不能检测到变化</li></ul> <h4 id="computed"><a href="#computed" class="header-anchor">#</a> @computed</h4> <ul><li>概念: 类比vue的Computed, 当依赖的值有变化时会执行一遍</li></ul> <h4 id="action"><a href="#action" class="header-anchor">#</a> @action</h4> <ul><li>概念: 改变store的值的行为</li></ul> <h4 id="extendobservable"><a href="#extendobservable" class="header-anchor">#</a> extendObservable</h4> <ul><li>概念: 初始为被 @observable设置为被监听值的, 可以通过extendObservable添加
+否则自行添加的没办法被mobx检测到变化</li></ul> <h4 id="autorun"><a href="#autorun" class="header-anchor">#</a> autorun</h4> <ul><li>概念: 初始执行一次, 当依赖的值有变化时候就会执行里面的函数, 此方法在mobx-react中被 @observer 所替代</li></ul> <h3 id="mobx-react主要api"><a href="#mobx-react主要api" class="header-anchor">#</a> mobx-react主要api</h3> <h4 id="provider"><a href="#provider" class="header-anchor">#</a> Provider</h4> <ul><li>概念: Provide与redux类似, 把利用context把store注入全局中</li></ul> <h4 id="inject"><a href="#inject" class="header-anchor">#</a> inject</h4> <ul><li>概念: 给组件注入其需要的 store（利用 React context 机制）</li></ul> <h4 id="observer"><a href="#observer" class="header-anchor">#</a> @observer</h4> <ul><li>概念: 监听store的变化, 同时更新视图的变化</li></ul> <blockquote><p>mobx可以创建多个store, 然后通过根store把所有的子store整合</p></blockquote> <h3 id="demo-装饰器用法"><a href="#demo-装饰器用法" class="header-anchor">#</a> demo(装饰器用法)</h3> <h4 id="创建一个store"><a href="#创建一个store" class="header-anchor">#</a> 创建一个store</h4> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> observable<span class="token punctuation">,</span> computed<span class="token punctuation">,</span> action <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'mobx'</span>
+<span class="token keyword">import</span> moment <span class="token keyword">from</span> <span class="token string">'moment'</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MobxStore</span> <span class="token punctuation">{</span>
+	@observable day <span class="token operator">=</span> <span class="token string">'2020/04/05'</span>
+	@observable time <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+	@observable todos <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	@computed <span class="token keyword">get</span> <span class="token function">desc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">[</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>time<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">]   you get </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>todos<span class="token punctuation">.</span>length<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> todo data</span><span class="token template-punctuation string">`</span></span>
+	<span class="token punctuation">}</span>
+	@action <span class="token function-variable function">setTodo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">todo</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>todos<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>todo<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	@action <span class="token function-variable function">removeTodo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">todo</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>todos <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>todos<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> item<span class="token operator">!==</span>todo<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	@action <span class="token function-variable function">resetTodo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>todos <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>
+	@action <span class="token function-variable function">updateTime</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>time <span class="token operator">=</span> <span class="token function">moment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYY-MM-DD HH:mm:ss'</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MobxStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 时间show</span>
+<span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	store<span class="token punctuation">.</span><span class="token function">updateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> store
+</code></pre></div><h4 id="组件中使用"><a href="#组件中使用" class="header-anchor">#</a> 组件中使用</h4> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> inject<span class="token punctuation">,</span> observer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'mobx-react'</span>
+
+<span class="token keyword">const</span> <span class="token constant">ADD</span> <span class="token operator">=</span> <span class="token string">'ADD'</span>
+<span class="token keyword">const</span> <span class="token constant">REMOVE</span> <span class="token operator">=</span> <span class="token string">'REMOVE'</span>
+<span class="token keyword">const</span> <span class="token constant">RESET</span> <span class="token operator">=</span> <span class="token string">'RESET'</span>
+<span class="token comment">/*
+@inject('store')： 注入store
+@observer： 对这个页面进行观察
+*/</span>
+
+@<span class="token function">inject</span><span class="token punctuation">(</span><span class="token string">'store'</span><span class="token punctuation">)</span> @observer
+<span class="token keyword">class</span> <span class="token class-name">Home</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+	<span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	    <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+			todotxt<span class="token operator">:</span> <span class="token string">''</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token function">handeTodo</span><span class="token punctuation">(</span>method<span class="token punctuation">,</span> item<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">const</span> <span class="token punctuation">{</span> setTodo<span class="token punctuation">,</span> resetTodo<span class="token punctuation">,</span> removeTodo <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>store
+		<span class="token keyword">const</span> <span class="token punctuation">{</span> todotxt <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state
+		<span class="token keyword">switch</span><span class="token punctuation">(</span>method<span class="token punctuation">)</span><span class="token punctuation">{</span>
+			<span class="token keyword">case</span> <span class="token constant">ADD</span><span class="token operator">:</span>
+			    <span class="token function">setTodo</span><span class="token punctuation">(</span>todotxt<span class="token punctuation">)</span>
+				<span class="token keyword">break</span>
+			<span class="token keyword">case</span> <span class="token constant">REMOVE</span><span class="token operator">:</span>
+			    <span class="token function">removeTodo</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+				<span class="token keyword">break</span>
+			<span class="token keyword">case</span> <span class="token constant">RESET</span><span class="token operator">:</span>
+			    <span class="token function">resetTodo</span><span class="token punctuation">(</span>todotxt<span class="token punctuation">)</span>
+				<span class="token keyword">break</span>
+			<span class="token keyword">default</span><span class="token operator">:</span>
+			  <span class="token keyword">return</span> method 
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	
+	<span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">const</span> <span class="token punctuation">{</span>day<span class="token punctuation">,</span> todos<span class="token punctuation">,</span> desc<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>store
+		
+		<span class="token keyword">return</span> <span class="token punctuation">(</span>
+			<span class="token operator">&lt;</span><span class="token operator">&gt;</span>
+			 <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span>made<span class="token operator">:</span> <span class="token punctuation">{</span>day<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+			 <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span>desc<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+			   <span class="token operator">&lt;</span>input 
+			     type<span class="token operator">=</span><span class="token string">&quot;text&quot;</span> 
+				 placeholder<span class="token operator">=</span><span class="token string">&quot;输入todo&quot;</span> 
+				 onInput<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+					 <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+						 todotxt<span class="token operator">:</span> el<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value
+					 <span class="token punctuation">}</span><span class="token punctuation">)</span>
+				 <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+			   <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">handeTodo</span><span class="token punctuation">(</span><span class="token constant">ADD</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>add<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+			   <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">handeTodo</span><span class="token punctuation">(</span><span class="token constant">RESET</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>reset<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+			   
+			   <span class="token operator">&lt;</span>h5<span class="token operator">&gt;</span><span class="token constant">TODOS</span> list<span class="token operator">&lt;</span><span class="token operator">/</span>h5<span class="token operator">&gt;</span>
+			   <span class="token punctuation">{</span>
+				   todos<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>
+				       <span class="token operator">&lt;</span>div key<span class="token operator">=</span><span class="token punctuation">{</span>item<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+					     <span class="token punctuation">{</span>item<span class="token punctuation">}</span>
+						 <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">handeTodo</span><span class="token punctuation">(</span><span class="token constant">REMOVE</span><span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>remove<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+					   <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+				   <span class="token punctuation">)</span><span class="token punctuation">)</span>
+			   <span class="token punctuation">}</span>
+			<span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+		<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Home
+</code></pre></div><h4 id="入口组件"><a href="#入口组件" class="header-anchor">#</a> 入口组件</h4> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Provider <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'mobx-react'</span>
+<span class="token keyword">import</span> store <span class="token keyword">from</span> <span class="token string">'./testMobxStore/store/index'</span>
+<span class="token keyword">import</span> Home <span class="token keyword">from</span> <span class="token string">'./testMobxStore/components/home'</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">MobxApp</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token punctuation">(</span>
+	   <span class="token operator">&lt;</span><span class="token operator">&gt;</span>
+	     <span class="token operator">&lt;</span>Provider store<span class="token operator">=</span><span class="token punctuation">{</span>store<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+		    <span class="token operator">&lt;</span>Home <span class="token operator">/</span><span class="token operator">&gt;</span>
+		 <span class="token operator">&lt;</span><span class="token operator">/</span>Provider<span class="token operator">&gt;</span>
+	   <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+	<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> MobxApp
+</code></pre></div><p><a href="https://github.com/HHardyy/eazy-mobx" target="_blank" rel="noopener noreferrer">github上的demo地址：<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/node/articals/web/css/grid.html" class="prev">grid网格布局</a></span> <span class="next"><a href="/node/articals/web/vue/vue-router/router.html">vue-router</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/node/assets/js/app.2a6376c5.js" defer></script><script src="/node/assets/js/2.0cb281c6.js" defer></script><script src="/node/assets/js/16.1b732ecd.js" defer></script>
+  </body>
+</html>
